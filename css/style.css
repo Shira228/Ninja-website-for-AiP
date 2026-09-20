@@ -45,6 +45,7 @@ body {
     z-index: 1000;
 }
 
+
 .logo {
     color: #ffffff;
     text-decoration: none;
@@ -54,10 +55,12 @@ body {
     letter-spacing: 6px;
 }
 
+
 .navigation {
     display: flex;
     gap: 35px;
 }
+
 
 .navigation a {
     color: #aaaaaa;
@@ -70,14 +73,11 @@ body {
     transition: 0.3s;
 }
 
+
 .navigation a:hover {
     color: #d91e18;
 }
 
-
-/* ==============================
-   ГЛАВНЫЙ ЭКРАН
-================================= */
 
 /* ==============================
    ГЛАВНЫЙ ЭКРАН
@@ -339,6 +339,7 @@ body {
     background: #0c0c0c;
 }
 
+
 .section h2 {
     font-size: clamp(40px, 6vw, 80px);
 
@@ -346,6 +347,7 @@ body {
 
     letter-spacing: 2px;
 }
+
 
 .section > p:not(.section-label) {
     max-width: 750px;
@@ -355,6 +357,7 @@ body {
     font-size: 18px;
     line-height: 1.8;
 }
+
 
 .section-label {
     color: #d91e18;
@@ -366,6 +369,7 @@ body {
 
     margin-bottom: 20px;
 }
+
 
 .dark-section {
     background: #070707;
@@ -386,6 +390,7 @@ body {
     margin-top: 60px;
 }
 
+
 .card {
     padding: 40px;
 
@@ -398,11 +403,13 @@ body {
     transition: 0.35s;
 }
 
+
 .card:hover {
     transform: translateY(-8px);
 
     border-color: #8f1717;
 }
+
 
 .card-number {
     color: #d91e18;
@@ -413,11 +420,13 @@ body {
     letter-spacing: 2px;
 }
 
+
 .card h3 {
     font-size: 30px;
 
     margin: 35px 0 20px;
 }
+
 
 .card p {
     color: #888888;
@@ -431,6 +440,8 @@ body {
 ================================= */
 
 .footer {
+    position: relative;
+
     padding: 35px 10%;
 
     text-align: center;
@@ -440,6 +451,42 @@ body {
     background: #050505;
 
     border-top: 1px solid #151515;
+}
+
+
+/* ==============================
+   КНОПКА ПАСХАЛКИ
+================================= */
+
+.easter-egg-button {
+    position: absolute;
+
+    bottom: 20px;
+    right: 25px;
+
+    width: 26px;
+    height: 26px;
+
+    border: 1px solid #333;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #555;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.easter-egg-button:hover {
+    color: #d91e18;
+
+    border-color: #d91e18;
+
+    transform: scale(1.15);
 }
 
 
@@ -466,23 +513,27 @@ body {
    МОБИЛЬНАЯ ВЕРСИЯ
 ================================= */
 
-    @media (max-width: 800px) {
+@media (max-width: 800px) {
 
     .header {
         padding: 0 5%;
     }
 
+
     .navigation {
         display: none;
     }
+
 
     .hero {
         padding: 120px 7%;
     }
 
+
     .hero-background {
         background-position: 65% center;
     }
+
 
     .hero-overlay {
         background:
@@ -498,73 +549,45 @@ body {
             );
     }
 
+
     .hero h1 {
         font-size: 80px;
 
         letter-spacing: 8px;
     }
 
+
     .description {
         font-size: 16px;
     }
+
 
     .scroll-hint {
         left: 7%;
     }
 
+
     .section {
         padding: 90px 7%;
     }
+
 
     .cards {
         grid-template-columns: 1fr;
     }
 
+
+    .easter-egg-button {
+        right: 15px;
+        bottom: 15px;
+    }
+
 }
+
+
 /* ==============================
    ПАСХАЛКА
 ================================= */
-
-.easter-egg-hint {
-    margin-top: 25px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-
-    color: #555;
-
-    font-size: 11px;
-    letter-spacing: 2px;
-}
-
-.easter-egg-hint button {
-    width: 28px;
-    height: 28px;
-
-    border: 1px solid #333;
-    border-radius: 50%;
-
-    background: transparent;
-    color: #777;
-
-    font-size: 15px;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.easter-egg-hint button:hover {
-    color: #d91e18;
-    border-color: #d91e18;
-
-    transform: rotate(15deg) scale(1.1);
-}
-
-
-/* Окно пасхалки */
 
 .easter-egg {
     position: fixed;
@@ -625,6 +648,7 @@ body {
     transition: 0.4s;
 }
 
+
 .easter-egg.active .easter-egg-content {
     transform: scale(1);
 }
@@ -657,6 +681,7 @@ body {
     margin-bottom: 15px;
 }
 
+
 .easter-egg-content p {
     color: #777;
 
@@ -686,6 +711,7 @@ body {
 
     transition: 0.3s;
 }
+
 
 .close-easter-egg:hover {
     color: #d91e18;
