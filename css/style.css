@@ -521,3 +521,189 @@ body {
     }
 
 }
+/* ==============================
+   ПАСХАЛКА
+================================= */
+
+.easter-egg-hint {
+    margin-top: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    color: #555;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.easter-egg-hint button {
+    width: 28px;
+    height: 28px;
+
+    border: 1px solid #333;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #777;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.easter-egg-hint button:hover {
+    color: #d91e18;
+    border-color: #d91e18;
+
+    transform: rotate(15deg) scale(1.1);
+}
+
+
+/* Окно пасхалки */
+
+.easter-egg {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.4s;
+
+    z-index: 2000;
+}
+
+
+/* Когда пасхалка открыта */
+
+.easter-egg.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Содержимое */
+
+.easter-egg-content {
+    position: relative;
+
+    width: min(500px, 85%);
+
+    padding: 70px 40px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(150, 0, 0, 0.25),
+            transparent 65%
+        ),
+        #090909;
+
+    border: 1px solid #3a1111;
+
+    box-shadow:
+        0 0 80px rgba(150, 0, 0, 0.2);
+
+    transform: scale(0.85);
+
+    transition: 0.4s;
+}
+
+.easter-egg.active .easter-egg-content {
+    transform: scale(1);
+}
+
+
+/* Дракон */
+
+.dragon {
+    font-size: 70px;
+
+    margin-bottom: 25px;
+
+    filter:
+        grayscale(1)
+        drop-shadow(0 0 15px rgba(200, 0, 0, 0.6));
+
+    animation: dragonFloat 2s ease-in-out infinite;
+}
+
+
+/* Заголовок */
+
+.easter-egg-content h2 {
+    color: #d91e18;
+
+    font-size: 35px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.easter-egg-content p {
+    color: #777;
+
+    letter-spacing: 3px;
+
+    font-size: 12px;
+}
+
+
+/* Кнопка закрытия */
+
+.close-easter-egg {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #666;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.close-easter-egg:hover {
+    color: #d91e18;
+
+    transform: rotate(90deg);
+}
+
+
+/* Анимация дракона */
+
+@keyframes dragonFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
