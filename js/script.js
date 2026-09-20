@@ -33,34 +33,49 @@ sections.forEach((section) => {
 // ПАСХАЛКА NINJA-GO
 // ==========================================
 
-const easterEggButton = document.getElementById("easterEggButton");
-const easterEgg = document.getElementById("easterEgg");
-const closeEasterEgg = document.getElementById("closeEasterEgg");
+const easterEggButton =
+    document.getElementById("easterEggButton");
+
+const easterEgg =
+    document.getElementById("easterEgg");
+
+const closeEasterEgg =
+    document.getElementById("closeEasterEgg");
 
 
-// Открытие
+// ОТКРЫТИЕ
 
 if (easterEggButton && easterEgg) {
 
-    easterEggButton.addEventListener("click", () => {
+    easterEggButton.addEventListener("click", (event) => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
         easterEgg.classList.add("active");
+
     });
 
 }
 
 
-// Закрытие крестиком
+// ЗАКРЫТИЕ КРЕСТИКОМ
 
 if (closeEasterEgg && easterEgg) {
 
-    closeEasterEgg.addEventListener("click", () => {
+    closeEasterEgg.addEventListener("click", (event) => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
         easterEgg.classList.remove("active");
+
     });
 
 }
 
 
-// Закрытие при нажатии на фон
+// ЗАКРЫТИЕ ПО ФОНУ
 
 if (easterEgg) {
 
