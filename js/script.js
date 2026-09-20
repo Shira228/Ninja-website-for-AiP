@@ -30,6 +30,38 @@ const observer = new IntersectionObserver(
 
 sections.forEach((section) => {
     observer.observe(section);
+    
+    // ==========================================
+// ПАСХАЛКА NINJAGO
+// ==========================================
+
+const easterEggButton = document.getElementById("easterEggButton");
+const easterEgg = document.getElementById("easterEgg");
+const closeEasterEgg = document.getElementById("closeEasterEgg");
+
+
+// Открыть пасхалку
+
+easterEggButton.addEventListener("click", () => {
+    easterEgg.classList.add("active");
 });
-```
+
+
+// Закрыть пасхалку
+
+closeEasterEgg.addEventListener("click", () => {
+    easterEgg.classList.remove("active");
+});
+
+
+// Закрытие по клику вне окна
+
+easterEgg.addEventListener("click", (event) => {
+
+    if (event.target === easterEgg) {
+        easterEgg.classList.remove("active");
+    }
+
+});
+});
 
