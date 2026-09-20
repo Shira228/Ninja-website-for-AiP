@@ -45,7 +45,6 @@ body {
     z-index: 1000;
 }
 
-
 .logo {
     color: #ffffff;
     text-decoration: none;
@@ -55,12 +54,10 @@ body {
     letter-spacing: 6px;
 }
 
-
 .navigation {
     display: flex;
     gap: 35px;
 }
-
 
 .navigation a {
     color: #aaaaaa;
@@ -72,7 +69,6 @@ body {
 
     transition: 0.3s;
 }
-
 
 .navigation a:hover {
     color: #d91e18;
@@ -98,9 +94,6 @@ body {
     background: #050505;
 }
 
-
-/* Фоновое изображение */
-
 .hero-background {
     position: absolute;
 
@@ -116,9 +109,6 @@ body {
 
     z-index: 0;
 }
-
-
-/* Затемнение поверх изображения */
 
 .hero-overlay {
     position: absolute;
@@ -142,9 +132,6 @@ body {
     z-index: 1;
 }
 
-
-/* Красное свечение */
-
 .hero::after {
     content: "";
 
@@ -167,9 +154,6 @@ body {
     z-index: 1;
 }
 
-
-/* Текст */
-
 .hero-content {
     position: relative;
 
@@ -179,7 +163,6 @@ body {
 
     animation: heroTextAppear 1.2s ease forwards;
 }
-
 
 .subtitle {
     color: #d91e18;
@@ -191,7 +174,6 @@ body {
 
     margin-bottom: 20px;
 }
-
 
 .hero h1 {
     font-size: clamp(80px, 14vw, 190px);
@@ -206,7 +188,6 @@ body {
         0 0 30px rgba(0, 0, 0, 0.8);
 }
 
-
 .description {
     max-width: 550px;
 
@@ -218,9 +199,6 @@ body {
 
     margin-bottom: 40px;
 }
-
-
-/* Кнопка */
 
 .hero-button {
     display: inline-block;
@@ -245,7 +223,6 @@ body {
         box-shadow 0.3s;
 }
 
-
 .hero-button:hover {
     background: #e32620;
 
@@ -254,9 +231,6 @@ body {
     box-shadow:
         0 10px 30px rgba(180, 0, 0, 0.3);
 }
-
-
-/* Подсказка прокрутки */
 
 .scroll-hint {
     position: absolute;
@@ -277,7 +251,6 @@ body {
 
     letter-spacing: 4px;
 }
-
 
 .scroll-hint span {
     display: block;
@@ -306,7 +279,6 @@ body {
     }
 
 }
-
 
 @keyframes backgroundAppear {
 
@@ -339,7 +311,6 @@ body {
     background: #0c0c0c;
 }
 
-
 .section h2 {
     font-size: clamp(40px, 6vw, 80px);
 
@@ -347,7 +318,6 @@ body {
 
     letter-spacing: 2px;
 }
-
 
 .section > p:not(.section-label) {
     max-width: 750px;
@@ -357,7 +327,6 @@ body {
     font-size: 18px;
     line-height: 1.8;
 }
-
 
 .section-label {
     color: #d91e18;
@@ -369,7 +338,6 @@ body {
 
     margin-bottom: 20px;
 }
-
 
 .dark-section {
     background: #070707;
@@ -390,7 +358,6 @@ body {
     margin-top: 60px;
 }
 
-
 .card {
     padding: 40px;
 
@@ -403,13 +370,11 @@ body {
     transition: 0.35s;
 }
 
-
 .card:hover {
     transform: translateY(-8px);
 
     border-color: #8f1717;
 }
-
 
 .card-number {
     color: #d91e18;
@@ -420,13 +385,11 @@ body {
     letter-spacing: 2px;
 }
 
-
 .card h3 {
     font-size: 30px;
 
     margin: 35px 0 20px;
 }
-
 
 .card p {
     color: #888888;
@@ -491,7 +454,6 @@ body {
     transition: 0.3s;
 }
 
-
 .easter-egg-button:hover {
     color: #d91e18;
 
@@ -500,101 +462,6 @@ body {
     background: transparent;
 
     transform: translateY(-50%) scale(1.15);
-}
-
-
-/* ==============================
-   АНИМАЦИЯ
-================================= */
-
-@keyframes appear {
-
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* ==============================
-   МОБИЛЬНАЯ ВЕРСИЯ
-================================= */
-
-@media (max-width: 800px) {
-
-    .easter-egg-button {
-        right: 7%;
-    }
-
-}
-
-    .header {
-        padding: 0 5%;
-    }
-
-
-    .navigation {
-        display: none;
-    }
-
-
-    .hero {
-        padding: 120px 7%;
-    }
-
-
-    .hero-background {
-        background-position: 65% center;
-    }
-
-
-    .hero-overlay {
-        background:
-            linear-gradient(
-                90deg,
-                rgba(5, 5, 5, 0.95),
-                rgba(5, 5, 5, 0.55)
-            ),
-            linear-gradient(
-                0deg,
-                rgba(5, 5, 5, 0.8),
-                transparent
-            );
-    }
-
-
-    .hero h1 {
-        font-size: 80px;
-
-        letter-spacing: 8px;
-    }
-
-
-    .description {
-        font-size: 16px;
-    }
-
-
-    .scroll-hint {
-        left: 7%;
-    }
-
-
-    .section {
-        padding: 90px 7%;
-    }
-
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
 }
 
 
@@ -623,16 +490,10 @@ body {
     z-index: 2000;
 }
 
-
-/* Когда пасхалка открыта */
-
 .easter-egg.active {
     opacity: 1;
     visibility: visible;
 }
-
-
-/* Содержимое */
 
 .easter-egg-content {
     position: relative;
@@ -661,13 +522,9 @@ body {
     transition: 0.4s;
 }
 
-
 .easter-egg.active .easter-egg-content {
     transform: scale(1);
 }
-
-
-/* Дракон */
 
 .dragon {
     font-size: 70px;
@@ -681,9 +538,6 @@ body {
     animation: dragonFloat 2s ease-in-out infinite;
 }
 
-
-/* Заголовок */
-
 .easter-egg-content h2 {
     color: #d91e18;
 
@@ -694,7 +548,6 @@ body {
     margin-bottom: 15px;
 }
 
-
 .easter-egg-content p {
     color: #777;
 
@@ -702,9 +555,6 @@ body {
 
     font-size: 12px;
 }
-
-
-/* Кнопка закрытия */
 
 .close-easter-egg {
     position: absolute;
@@ -725,15 +575,11 @@ body {
     transition: 0.3s;
 }
 
-
 .close-easter-egg:hover {
     color: #d91e18;
 
     transform: rotate(90deg);
 }
-
-
-/* Анимация дракона */
 
 @keyframes dragonFloat {
 
@@ -743,6 +589,71 @@ body {
 
     50% {
         transform: translateY(-8px);
+    }
+
+}
+
+
+/* ==============================
+   МОБИЛЬНАЯ ВЕРСИЯ
+================================= */
+
+@media (max-width: 800px) {
+
+    .header {
+        padding: 0 5%;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .hero {
+        padding: 120px 7%;
+    }
+
+    .hero-background {
+        background-position: 65% center;
+    }
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(5, 5, 5, 0.95),
+                rgba(5, 5, 5, 0.55)
+            ),
+            linear-gradient(
+                0deg,
+                rgba(5, 5, 5, 0.8),
+                transparent
+            );
+    }
+
+    .hero h1 {
+        font-size: 80px;
+
+        letter-spacing: 8px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .scroll-hint {
+        left: 7%;
+    }
+
+    .section {
+        padding: 90px 7%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .easter-egg-button {
+        right: 7%;
     }
 
 }
