@@ -1,1 +1,368 @@
+```css
+/* ==============================
+   ОСНОВНЫЕ НАСТРОЙКИ
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ==============================
+   НАВИГАЦИЯ
+================================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(8, 8, 8, 0.75);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    z-index: 1000;
+}
+
+.logo {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 6px;
+}
+
+.navigation {
+    display: flex;
+    gap: 35px;
+}
+
+.navigation a {
+    color: #aaaaaa;
+    text-decoration: none;
+
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.navigation a:hover {
+    color: #d91e18;
+}
+
+
+/* ==============================
+   ГЛАВНЫЙ ЭКРАН
+================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 10%;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(140, 0, 0, 0.25),
+            transparent 35%
+        ),
+        #080808;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 700px;
+
+    animation: appear 1.2s ease;
+}
+
+.subtitle {
+    color: #d91e18;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(80px, 14vw, 190px);
+
+    line-height: 0.85;
+
+    letter-spacing: 15px;
+
+    margin-bottom: 35px;
+}
+
+.description {
+    max-width: 550px;
+
+    color: #a7a7a7;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    margin-bottom: 40px;
+}
+
+.hero-button {
+    display: inline-block;
+
+    padding: 16px 35px;
+
+    background: #b81717;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: #e32620;
+    transform: translateY(-3px);
+}
+
+
+/* Декоративный элемент */
+
+.hero-shadow {
+    position: absolute;
+
+    right: 8%;
+    top: 50%;
+
+    width: 400px;
+    height: 400px;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(120, 0, 0, 0.18);
+
+    filter: blur(40px);
+}
+
+
+/* ==============================
+   СЕКЦИИ
+================================= */
+
+.section {
+    min-height: 70vh;
+
+    padding: 120px 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: #0c0c0c;
+}
+
+.section h2 {
+    font-size: clamp(40px, 6vw, 80px);
+
+    margin-bottom: 30px;
+
+    letter-spacing: 2px;
+}
+
+.section > p:not(.section-label) {
+    max-width: 750px;
+
+    color: #999999;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.section-label {
+    color: #d91e18;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.dark-section {
+    background: #070707;
+}
+
+
+/* ==============================
+   КАРТОЧКИ
+================================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 60px;
+}
+
+.card {
+    padding: 40px;
+
+    min-height: 250px;
+
+    background: #101010;
+
+    border: 1px solid #1d1d1d;
+
+    transition: 0.35s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: #8f1717;
+}
+
+.card-number {
+    color: #d91e18;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.card h3 {
+    font-size: 30px;
+
+    margin: 35px 0 20px;
+}
+
+.card p {
+    color: #888888;
+
+    line-height: 1.7;
+}
+
+
+/* ==============================
+   FOOTER
+================================= */
+
+.footer {
+    padding: 35px 10%;
+
+    text-align: center;
+
+    color: #555555;
+
+    background: #050505;
+
+    border-top: 1px solid #151515;
+}
+
+
+/* ==============================
+   АНИМАЦИЯ
+================================= */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==============================
+   МОБИЛЬНАЯ ВЕРСИЯ
+================================= */
+
+@media (max-width: 800px) {
+
+    .header {
+        padding: 0 5%;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .hero {
+        padding: 120px 7%;
+    }
+
+    .hero h1 {
+        font-size: 80px;
+        letter-spacing: 8px;
+    }
+
+    .hero-shadow {
+        width: 250px;
+        height: 250px;
+
+        right: -100px;
+    }
+
+    .section {
+        padding: 90px 7%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+```
 
