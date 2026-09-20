@@ -1,36 +1,75 @@
 console.log("NINJA JS loaded");
 
 
-// ==============================
-// ПАСХАЛКА
-// ==============================
+// ==========================================
+// ПОЯВЛЕНИЕ СЕКЦИЙ
+// ==========================================
 
-const button = document.getElementById("easterEggButton");
-const popup = document.getElementById("easterEgg");
-const closeButton = document.getElementById("closeEasterEgg");
+const sections = document.querySelectorAll(".section");
 
-console.log("Button:", button);
-console.log("Popup:", popup);
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+sections.forEach((section) => {
+    observer.observe(section);
+});
+
+
+// ==========================================
+// ПАСХАЛКА NINJA-GO
+// ==========================================
+
+const easterEggButton = document.getElementById("easterEggButton");
+const easterEgg = document.getElementById("easterEgg");
+const closeEasterEgg = document.getElementById("closeEasterEgg");
 
 
 // Открытие
-button.addEventListener("click", function () {
-    console.log("Easter egg opened");
-    popup.classList.add("active");
-});
+
+if (easterEggButton && easterEgg) {
+
+    easterEggButton.addEventListener("click", () => {
+        easterEgg.classList.add("active");
+    });
+
+}
 
 
 // Закрытие крестиком
-closeButton.addEventListener("click", function () {
-    popup.classList.remove("active");
-});
+
+if (closeEasterEgg && easterEgg) {
+
+    closeEasterEgg.addEventListener("click", () => {
+        easterEgg.classList.remove("active");
+    });
+
+}
 
 
-// Закрытие при клике по затемнению
-popup.addEventListener("click", function (event) {
+// Закрытие при нажатии на фон
 
-    if (event.target === popup) {
-        popup.classList.remove("active");
-    }
+if (easterEgg) {
 
-});
+    easterEgg.addEventListener("click", (event) => {
+
+        if (event.target === easterEgg) {
+            easterEgg.classList.remove("active");
+        }
+
+    });
+
+}
