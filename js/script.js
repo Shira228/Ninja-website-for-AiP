@@ -1,68 +1,36 @@
-// ==========================================
-// NINJA — Основной JavaScript
-// ==========================================
-
-console.log("NINJA site loaded");
+console.log("NINJA JS loaded");
 
 
-// ==========================================
-// ПОЯВЛЕНИЕ СЕКЦИЙ ПРИ ПРОКРУТКЕ
-// ==========================================
+// ==============================
+// ПАСХАЛКА
+// ==============================
 
-const sections = document.querySelectorAll(".section");
+const button = document.getElementById("easterEggButton");
+const popup = document.getElementById("easterEgg");
+const closeButton = document.getElementById("closeEasterEgg");
 
-const observer = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.15
-    }
-);
+console.log("Button:", button);
+console.log("Popup:", popup);
 
 
-sections.forEach((section) => {
-    observer.observe(section);
+// Открытие
+button.addEventListener("click", function () {
+    console.log("Easter egg opened");
+    popup.classList.add("active");
 });
 
 
-// ==========================================
-// ПАСХАЛКА NINJAGO
-// ==========================================
-
-const easterEggButton = document.getElementById("easterEggButton");
-const easterEgg = document.getElementById("easterEgg");
-const closeEasterEgg = document.getElementById("closeEasterEgg");
-
-
-// Открыть пасхалку
-
-easterEggButton.addEventListener("click", () => {
-    easterEgg.classList.add("active");
+// Закрытие крестиком
+closeButton.addEventListener("click", function () {
+    popup.classList.remove("active");
 });
 
 
-// Закрыть пасхалку
+// Закрытие при клике по затемнению
+popup.addEventListener("click", function (event) {
 
-closeEasterEgg.addEventListener("click", () => {
-    easterEgg.classList.remove("active");
-});
-
-
-// Закрытие по клику вне окна
-
-easterEgg.addEventListener("click", (event) => {
-
-    if (event.target === easterEgg) {
-        easterEgg.classList.remove("active");
+    if (event.target === popup) {
+        popup.classList.remove("active");
     }
 
 });
