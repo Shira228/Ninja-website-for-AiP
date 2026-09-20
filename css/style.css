@@ -80,34 +80,107 @@ body {
    ГЛАВНЫЙ ЭКРАН
 ================================= */
 
+/* ==============================
+   ГЛАВНЫЙ ЭКРАН
+================================= */
+
 .hero {
     min-height: 100vh;
+
+    position: relative;
 
     display: flex;
     align-items: center;
 
     padding: 120px 10%;
 
-    position: relative;
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            circle at 75% 50%,
-            rgba(140, 0, 0, 0.25),
-            transparent 35%
-        ),
-        #080808;
+    background: #050505;
 }
+
+
+/* Фоновое изображение */
+
+.hero-background {
+    position: absolute;
+
+    inset: 0;
+
+    background-image: url("../images/ninja.jpg");
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.03);
+
+    animation: backgroundAppear 2s ease forwards;
+
+    z-index: 0;
+}
+
+
+/* Затемнение поверх изображения */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 0.98) 0%,
+            rgba(5, 5, 5, 0.85) 30%,
+            rgba(5, 5, 5, 0.35) 60%,
+            rgba(5, 5, 5, 0.55) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(5, 5, 5, 0.8),
+            transparent 40%
+        );
+
+    z-index: 1;
+}
+
+
+/* Красное свечение */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: 8%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: rgba(150, 0, 0, 0.25);
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* Текст */
 
 .hero-content {
     position: relative;
-    z-index: 2;
+
+    z-index: 3;
 
     max-width: 700px;
 
-    animation: appear 1.2s ease;
+    animation: heroTextAppear 1.2s ease forwards;
 }
+
 
 .subtitle {
     color: #d91e18;
@@ -120,6 +193,7 @@ body {
     margin-bottom: 20px;
 }
 
+
 .hero h1 {
     font-size: clamp(80px, 14vw, 190px);
 
@@ -128,18 +202,26 @@ body {
     letter-spacing: 15px;
 
     margin-bottom: 35px;
+
+    text-shadow:
+        0 0 30px rgba(0, 0, 0, 0.8);
 }
+
 
 .description {
     max-width: 550px;
 
-    color: #a7a7a7;
+    color: #b5b5b5;
 
     font-size: 18px;
+
     line-height: 1.7;
 
     margin-bottom: 40px;
 }
+
+
+/* Кнопка */
 
 .hero-button {
     display: inline-block;
@@ -147,42 +229,98 @@ body {
     padding: 16px 35px;
 
     background: #b81717;
+
     color: white;
 
     text-decoration: none;
 
     font-size: 14px;
+
     font-weight: bold;
 
     letter-spacing: 2px;
 
-    transition: 0.3s;
+    transition:
+        transform 0.3s,
+        background 0.3s,
+        box-shadow 0.3s;
 }
+
 
 .hero-button:hover {
     background: #e32620;
-    transform: translateY(-3px);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 30px rgba(180, 0, 0, 0.3);
 }
 
 
-/* Декоративный элемент */
+/* Подсказка прокрутки */
 
-.hero-shadow {
+.scroll-hint {
     position: absolute;
 
-    right: 8%;
-    top: 50%;
+    z-index: 3;
 
-    width: 400px;
-    height: 400px;
+    bottom: 35px;
+    left: 10%;
 
-    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
 
-    border-radius: 50%;
+    gap: 12px;
 
-    background: rgba(120, 0, 0, 0.18);
+    color: #666;
 
-    filter: blur(40px);
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+.scroll-hint span {
+    display: block;
+
+    width: 35px;
+    height: 1px;
+
+    background: #d91e18;
+}
+
+
+/* ==============================
+   АНИМАЦИИ HERO
+================================= */
+
+@keyframes heroTextAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes backgroundAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.03);
+    }
+
 }
 
 
@@ -329,7 +467,7 @@ body {
    МОБИЛЬНАЯ ВЕРСИЯ
 ================================= */
 
-@media (max-width: 800px) {
+    @media (max-width: 800px) {
 
     .header {
         padding: 0 5%;
@@ -343,16 +481,36 @@ body {
         padding: 120px 7%;
     }
 
+    .hero-background {
+        background-position: 65% center;
+    }
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(5, 5, 5, 0.95),
+                rgba(5, 5, 5, 0.55)
+            ),
+            linear-gradient(
+                0deg,
+                rgba(5, 5, 5, 0.8),
+                transparent
+            );
+    }
+
     .hero h1 {
         font-size: 80px;
+
         letter-spacing: 8px;
     }
 
-    .hero-shadow {
-        width: 250px;
-        height: 250px;
+    .description {
+        font-size: 16px;
+    }
 
-        right: -100px;
+    .scroll-hint {
+        left: 7%;
     }
 
     .section {
@@ -364,5 +522,3 @@ body {
     }
 
 }
-```
-
